@@ -14,5 +14,11 @@
 
 int	ft_printf(const char restrict *format, ...)
 {
-	
+	va_list	arg;
+
+	va_start(arg, format);
+	while (*format)
+	{
+		
+	}
 }
