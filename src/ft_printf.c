@@ -12,13 +12,14 @@
 
 #include "ft_printf.h"
 
-int	ft_printf(const char restrict *format, ...)
+int	ft_printf(const char *restrict format, ...)
 {
 	va_list	arg;
 
 	va_start(arg, format);
 	while (*format)
 	{
-		format_check(arg);
+		//format_check(arg);
 	}
+	return (0);
 }
