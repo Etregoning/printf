@@ -16,4 +16,12 @@
 # include <stdio.h>
 # include "libft.h"
 
+typedef struct	s_format
+{
+	char	**modifiers;
+}				t_formt;
+
+int	ft_printf(const char *format, ...);
+void format_check(char *arg);
+
 #endif
