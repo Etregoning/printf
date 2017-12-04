@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etregoni <etregoni@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/29 16:38:17 by etregoni          #+#    #+#             */
-/*   Updated: 2017/11/29 16:38:21 by etregoni         ###   ########.fr       */
+/*   Created: 2017/12/03 15:25:47 by etregoni          #+#    #+#             */
+/*   Updated: 2017/12/03 15:25:50 by etregoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *format, ...)
+int	main(void)
 {
-	va_list	arg;
-
-	va_start(arg, format);
-	while (*format)
-	{
-		format_check(format, arg);
-	}
-	va_end(arg);
+	ft_printf("%s", "test");
 	return (0);
 }

@@ -10,20 +10,23 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ftprintf.a
+NAME = libftprintf.a
 CFLAGS = -Wall -Werror -Wextra -g
 
 SRC_FILES = ft_printf.c
 LIBFT_FILES = ft_putstr.c
-OBJ_FILES = $(SRC_FILES:.c=.o)
+SRC_OBJ_FILES = $(SRC_FILES:.c=.o)
+LIBFT_OBJ_FILES = $(LIBFT_FILES:.c=.o)
 
 SRC_DIR = ./src/
-OBJ_DIR = ./obj/
 INC_DIR = ./include/
 LIBFT_DIR = ./libft/
+OBJ_DIR = ./obj/
+
 
 SRC = $(addprefix $(SRC_DIR), $(SRC_FILES))
-OBJ = $(addprefix $(OBJ_DIR), $(OBJ_FILES))
+OBJ = $(addprefix $(OBJ_DIR), $(SRC_OBJ_FILES))
+OBJ_LIBFT = $(addprefix $(OBJ_DIR), $(LIBFT_OBJ_FILES))
 
 all: obj $(NAME)
 
@@ -36,9 +39,14 @@ $(OBJ_DIR)%.o:$(SRC_DIR)%.c
 $(OBJ_DIR)%.o:$(LIBFT_DIR)%.c
 	@gcc $(CFLAGS) -I $(INC_DIR) -o $@ -c $<
 
-$(NAME): $(OBJ)
-	@ar rc $(NAME) $(OBJ)
+$(NAME): $(OBJ) $(OBJ_LIBFT)
+	@ar rc $(NAME) $(OBJ) $(OBJ_LIBFT)
 	@ranlib $(NAME)
+
+#REMOVE ME BEFORE TURNING IN!
+
+test: $(NAME)
+	gcc $(CFLAGS) src/main.c -I $(INC_DIR) -L. -lftprintf -o test
 
 clean:
 	@echo "\033[31mRemoving objects...\033[0m"
@@ -47,7 +55,7 @@ clean:
 
 fclean: clean
 	@echo "\033[31mRemoving $(NAME)...\033[0m"
-	@rm -f $(NAME)
+	@rm -f $(NAME) test
 	@rm -rf $(OBJ_DIR)
 	@echo "\033[1;4;31m$(NAME) removed!\033[0m"
 

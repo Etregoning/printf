@@ -19,9 +19,14 @@
 typedef struct	s_format
 {
 	char	**modifiers;
-}				t_formt;
+}				t_format;
+
+typedef struct	s_ftprintf
+{
+	t_format *format;
+}				t_ftprintf;
 
 int	ft_printf(const char *format, ...);
-void format_check(char *arg);
+void format_check(const char *format, va_list arg);
 
 #endif

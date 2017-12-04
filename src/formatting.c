@@ -12,7 +12,12 @@
 
 #include "ft_printf.h"
 
-void format_check(char *arg)
+void format_check(const char *format, va_list arg)
 {
+	if (*format == '%')
+	{
+		format++;
+
+	}
 
 }
