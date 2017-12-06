@@ -13,8 +13,8 @@
 NAME = libftprintf.a
 CFLAGS = -Wall -Werror -Wextra -g
 
-SRC_FILES = ft_printf.c
-LIBFT_FILES = ft_putstr.c
+SRC_FILES = ft_printf.c format_check.c
+LIBFT_FILES = ft_putstr.c ft_putendl.c
 SRC_OBJ_FILES = $(SRC_FILES:.c=.o)
 LIBFT_OBJ_FILES = $(LIBFT_FILES:.c=.o)
 
@@ -61,4 +61,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: clean fclean all re
+.PHONY: clean fclean all re test

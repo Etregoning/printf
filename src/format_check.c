@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   formatting.c                                       :+:      :+:    :+:   */
+/*   format_check.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etregoni <etregoni@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,10 +14,16 @@
 
 void format_check(const char *format, va_list arg)
 {
-	if (*format == '%')
-	{
-		format++;
+	char *s;
 
+	s = 0;
+	if (*format++ == '%')
+	{
+		if (*format == 'c')
+		{
+			s = va_arg(arg, char *);
+			ft_putstr(s);
+		}
 	}
 
 }

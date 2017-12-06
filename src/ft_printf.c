@@ -20,6 +20,7 @@ int	ft_printf(const char *format, ...)
 	while (*format)
 	{
 		format_check(format, arg);
+		format++;
 	}
 	va_end(arg);
 	return (0);

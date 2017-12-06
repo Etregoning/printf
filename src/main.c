@@ -14,6 +14,6 @@
 
 int	main(void)
 {
-	ft_printf("%s", "test");
+	ft_printf("this is a %c\n", 6);
 	return (0);
 }
