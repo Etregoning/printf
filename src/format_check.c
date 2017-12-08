@@ -12,7 +12,18 @@
 
 #include "ft_printf.h"
 
-void format_check(const char *format, va_list arg)
+void is_valid_format(t_ftprintf ft)
+{
+	if (ft->fmt->f++ == '%')
+	{
+		if (ft->fmt->f == '-' || ft->fmt->f == '+' || ft->fmt->f == ' ')
+			flags(ft);
+		if (ft->fmt->f == '#' || ft->fmt->f == 0)
+			flags(ft);
+	}
+}
+
+void format_check(t_ftprintf ft, va_list arg)
 {
 	char *s;
 

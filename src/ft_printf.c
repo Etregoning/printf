@@ -15,12 +15,18 @@
 int	ft_printf(const char *format, ...)
 {
 	va_list	arg;
+	t_ftprintf *ft;
 
+	if (!(ft = (t_ftprintf*)ft_memalloc(sizeof(t_ftprintf))))
+		ft_error("Failed to allocate memory for main struct");
+	if (!(ft->fmt = (t_format*)ft_memalloc(sizeof(t_format))))
+		ft_error("Failed to allocate memory for format struct");
+	ft->fmt->f = format;
 	va_start(arg, format);
-	while (*format)
+	while (ft->fmt->f)
 	{
-		format_check(format, arg);
-		format++;
+		format_check(ft, arg);
+		ft->fmt->f++;
 	}
 	va_end(arg);
 	return (0);

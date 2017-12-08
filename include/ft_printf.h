@@ -18,12 +18,13 @@
 
 typedef struct	s_format
 {
-	char	**modifiers;
+	char	*plaintext;
+	const char	*f;
 }				t_format;
 
 typedef struct	s_ftprintf
 {
-	t_format *format;
+	t_format *fmt;
 }				t_ftprintf;
 
 int	ft_printf(const char *format, ...);
